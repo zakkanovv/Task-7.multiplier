@@ -1,0 +1,779 @@
+<!DOCTYPE html>
+<html lang="ru" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Кейс 3 · Сравнение двух агропредприятий | AgriCase</title>
+  <meta name="description" content="Учебный экономический кейс: оценка стоимости агропредприятия по мультипликатору «Стоимость / Выручка».">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="progress-bar" id="progressBar" aria-hidden="true"></div>
+  <a href="#top" class="skip-link">Перейти к содержимому</a>
+
+  <!-- ============ HEADER ============ -->
+  <header class="header">
+    <div class="container header__inner">
+      <a href="#top" class="logo" aria-label="AgriCase">
+        <span class="logo__mark" aria-hidden="true">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 20V11"/>
+            <path d="M12 11c0-3.5 2.7-6.4 6.5-6.4C18.5 8.1 15.8 11 12 11Z"/>
+            <path d="M12 14c0-2.6-2.2-4.7-5-4.7 0 2.6 2.2 4.7 5 4.7Z"/>
+          </svg>
+        </span>
+        <span>Agri<em>Case</em></span>
+      </a>
+
+      <nav class="nav" aria-label="Разделы">
+        <a href="#task">Условие</a>
+        <a href="#solution">Решение</a>
+        <a href="#calculator">Калькулятор</a>
+        <a href="#table">Сравнение</a>
+        <a href="#quiz">Тест</a>
+        <a href="#conclusion">Вывод</a>
+      </nav>
+
+      <div class="header__actions">
+        <button type="button" class="header__icon-btn" id="shareBtn" aria-label="Скопировать ссылку">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M4 12v7a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-7"/>
+            <path d="M16 6l-4-4-4 4M12 2v14"/>
+          </svg>
+        </button>
+
+        <button type="button" class="theme-toggle" id="themeToggle" aria-label="Переключить тёмную тему">
+          <svg class="icon-sun" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="4"/>
+            <path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/>
+          </svg>
+          <svg class="icon-moon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8Z"/>
+          </svg>
+        </button>
+
+        <a href="#calculator" class="header__cta">Рассчитать →</a>
+
+        <button type="button" class="burger" id="burger" aria-label="Открыть меню" aria-expanded="false">
+          <span></span><span></span>
+        </button>
+      </div>
+    </div>
+
+    <div class="mobile-menu" id="mobileMenu" hidden>
+      <nav aria-label="Мобильная навигация">
+        <a href="#task">Условие</a>
+        <a href="#solution">Решение</a>
+        <a href="#calculator">Калькулятор</a>
+        <a href="#table">Сравнение</a>
+        <a href="#quiz">Тест</a>
+        <a href="#conclusion">Вывод</a>
+        <a href="#calculator" class="mobile-menu__cta">Рассчитать →</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top">
+
+    <!-- ============ HERO ============ -->
+    <section class="hero">
+      <div class="container hero__inner">
+
+        <div class="hero__text reveal">
+          <div class="eyebrow">
+            <span class="eyebrow__dot"></span>
+            Экономический кейс · № 3
+          </div>
+
+          <h1 class="hero__title">Сравнение двух<br>агропредприятий</h1>
+
+          <p class="hero__lead">
+            Оценка рыночной стоимости на основе мультипликатора
+            «Стоимость&nbsp;/&nbsp;Выручка».
+          </p>
+
+          <div class="hero__actions">
+            <a href="#calculator" class="btn btn--primary">Рассчитать стоимость</a>
+            <a href="#solution" class="btn btn--ghost">Изучить решение</a>
+          </div>
+
+          <dl class="facts">
+            <div class="facts__item">
+              <dt>Мультипликатор</dt>
+              <dd>1,2</dd>
+            </div>
+            <div class="facts__item facts__item--key">
+              <dt>Стоимость Б</dt>
+              <dd>720 <span>млн ₸</span></dd>
+            </div>
+            <div class="facts__item">
+              <dt>Компаний</dt>
+              <dd>2</dd>
+            </div>
+          </dl>
+        </div>
+
+        <div class="hero__art reveal">
+          <div class="art-plate">
+            <svg class="art" viewBox="0 0 560 480" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Иллюстрация полей и аналитики агробизнеса">
+              <defs>
+                <linearGradient id="bgGrad" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="0%" stop-color="var(--art-bg-1)"/>
+                  <stop offset="100%" stop-color="var(--art-bg-2)"/>
+                </linearGradient>
+                <linearGradient id="field1" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="0%" stop-color="var(--art-field-1-a)"/><stop offset="100%" stop-color="var(--art-field-1-b)"/>
+                </linearGradient>
+                <linearGradient id="field2" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="0%" stop-color="var(--art-field-2-a)"/><stop offset="100%" stop-color="var(--art-field-2-b)"/>
+                </linearGradient>
+                <linearGradient id="field3" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="0%" stop-color="var(--art-field-3-a)"/><stop offset="100%" stop-color="var(--art-field-3-b)"/>
+                </linearGradient>
+              </defs>
+              <rect width="560" height="480" rx="16" fill="url(#bgGrad)"/>
+              <g stroke="var(--art-grid)" stroke-width="1">
+                <line x1="80" y1="0" x2="80" y2="480"/>
+                <line x1="200" y1="0" x2="200" y2="480"/>
+                <line x1="320" y1="0" x2="320" y2="480"/>
+                <line x1="440" y1="0" x2="440" y2="480"/>
+                <line x1="0" y1="120" x2="560" y2="120"/>
+                <line x1="0" y1="240" x2="560" y2="240"/>
+                <line x1="0" y1="360" x2="560" y2="360"/>
+              </g>
+              <circle cx="430" cy="105" r="34" fill="var(--art-sun)" opacity="0.9"/>
+              <circle cx="430" cy="105" r="58" fill="var(--art-sun)" opacity="0.12"/>
+              <path d="M0 300 Q 160 268 300 292 T 560 288 L 560 480 L 0 480 Z" fill="url(#field1)"/>
+              <path d="M0 350 Q 180 322 320 348 T 560 344 L 560 480 L 0 480 Z" fill="url(#field2)"/>
+              <path d="M0 408 Q 200 384 360 404 T 560 400 L 560 480 L 0 480 Z" fill="url(#field3)"/>
+              <g stroke="var(--art-grid)" stroke-width="1.4" stroke-linecap="round">
+                <path d="M50 462 L140 424"/>
+                <path d="M160 470 L240 434"/>
+                <path d="M290 476 L360 444"/>
+                <path d="M420 478 L480 452"/>
+              </g>
+              <g transform="translate(52 168)">
+                <rect width="224" height="128" rx="14" fill="var(--art-card)"/>
+                <rect x="20" y="20" width="60" height="6" rx="3" fill="var(--art-card-line)"/>
+                <rect x="20" y="34" width="34" height="4" rx="2" fill="var(--art-card-line-2)"/>
+                <rect x="20" y="80" width="18" height="26" rx="4" fill="var(--art-bar-1)"/>
+                <rect x="48" y="62" width="18" height="44" rx="4" fill="var(--art-bar-2)"/>
+                <rect x="76" y="48" width="18" height="58" rx="4" fill="var(--art-bar-3)"/>
+                <rect x="104" y="32" width="18" height="74" rx="4" fill="var(--art-bar-4)"/>
+                <rect x="132" y="56" width="18" height="50" rx="4" fill="var(--art-bar-5)"/>
+                <rect x="160" y="42" width="18" height="64" rx="4" fill="var(--art-bar-6)"/>
+                <line x1="20" y1="110" x2="182" y2="110" stroke="var(--art-card-line-2)" stroke-width="1.4"/>
+              </g>
+            </svg>
+
+            <div class="art-badge art-badge--tl">
+              <span class="art-badge__dot"></span>
+              Мультипликатор&nbsp;1,2
+            </div>
+            <div class="art-badge art-badge--br">
+              <span class="art-badge__dot"></span>
+              720&nbsp;млн&nbsp;₸
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ============ TASK ============ -->
+    <section class="section" id="task">
+      <div class="container">
+        <header class="section__head reveal">
+          <div class="eyebrow">Исходные данные</div>
+          <h2 class="section__title">Условие задачи</h2>
+          <p class="section__lead">
+            Известны выручка и стоимость предприятия&nbsp;А. Требуется оценить
+            стоимость предприятия&nbsp;Б по сопоставимому мультипликатору.
+          </p>
+        </header>
+
+        <div class="companies-flow">
+
+          <article class="card company">
+            <div class="company__head">
+              <div>
+                <span class="company__tag">Базовое</span>
+                <h3>Предприятие А</h3>
+              </div>
+              <span class="company__icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M3 21h18M5 21V9l7-4 7 4v12M9 21v-5h6v5"/>
+                </svg>
+              </span>
+            </div>
+            <ul class="datalist">
+              <li><span class="datalist__label">Выручка</span><span class="datalist__value">400 <em>млн ₸</em></span></li>
+              <li><span class="datalist__label">Стоимость</span><span class="datalist__value">480 <em>млн ₸</em></span></li>
+              <li class="datalist__item--accent">
+                <span class="datalist__label">Мультипликатор</span>
+                <span class="datalist__value datalist__value--muted">к расчёту</span>
+              </li>
+            </ul>
+          </article>
+
+          <div class="flow-arrow" aria-hidden="true">
+            <svg viewBox="0 0 120 60" xmlns="http://www.w3.org/2000/svg">
+              <defs>
+                <linearGradient id="arrowGrad" x1="0" y1="0" x2="1" y2="0">
+                  <stop offset="0%" stop-color="var(--green)" stop-opacity="0.15"/>
+                  <stop offset="100%" stop-color="var(--green)" stop-opacity="0.9"/>
+                </linearGradient>
+                <marker id="arrowHead" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+                  <path d="M0 0 L10 5 L0 10 Z" fill="var(--green)"/>
+                </marker>
+              </defs>
+              <line x1="6" y1="30" x2="106" y2="30" stroke="url(#arrowGrad)" stroke-width="2" stroke-dasharray="4 4" stroke-linecap="round" marker-end="url(#arrowHead)"/>
+              <circle cx="6" cy="30" r="3" fill="var(--green)" opacity="0.4"/>
+            </svg>
+            <span class="flow-arrow__label">мультипликатор&nbsp;1,2</span>
+          </div>
+
+          <article class="card company company--alt">
+            <div class="company__head">
+              <div>
+                <span class="company__tag company__tag--alt">Оцениваемое</span>
+                <h3>Предприятие Б</h3>
+              </div>
+              <span class="company__icon company__icon--alt" aria-hidden="true">
+                <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M3 21h18M4 10h6v11H4zM14 4h6v17h-6z"/>
+                </svg>
+              </span>
+            </div>
+            <ul class="datalist">
+              <li><span class="datalist__label">Выручка</span><span class="datalist__value">600 <em>млн ₸</em></span></li>
+              <li><span class="datalist__label">Стоимость</span><span class="datalist__value datalist__value--muted">неизвестна</span></li>
+              <li class="datalist__item--accent">
+                <span class="datalist__label">Мультипликатор</span>
+                <span class="datalist__value">как у А</span>
+              </li>
+            </ul>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ SOLUTION ============ -->
+    <section class="section section--alt" id="solution">
+      <div class="container">
+        <header class="section__head reveal">
+          <div class="eyebrow">Логика расчёта</div>
+          <h2 class="section__title">Пошаговое решение</h2>
+          <p class="section__lead">
+            Три шага: находим мультипликатор сопоставимой компании и применяем
+            его к выручке оцениваемого предприятия.
+          </p>
+        </header>
+
+        <div class="steps">
+          <article class="step">
+            <div class="step__num">01</div>
+            <div class="step__body">
+              <h3 class="step__title">Формула мультипликатора</h3>
+              <p class="step__text">
+                Мультипликатор показывает, сколько единиц стоимости
+                приходится на одну единицу выручки.
+              </p>
+              <div class="formula">
+                <span>Мультипликатор</span>
+                <span class="formula__op">=</span>
+                <span class="frac">
+                  <span class="frac__top">Стоимость</span>
+                  <span class="frac__line"></span>
+                  <span class="frac__bottom">Выручка</span>
+                </span>
+              </div>
+              <div class="calc">
+                <span class="calc__note">Подставляем данные предприятия А</span>
+                <div class="calc__line">
+                  <span>480</span>
+                  <span class="calc__op">÷</span>
+                  <span>400</span>
+                  <span class="calc__op">=</span>
+                  <span class="calc__res">1,2</span>
+                </div>
+              </div>
+              <div class="pill">
+                <span class="pill__dot"></span>
+                Мультипликатор предприятия А — <strong>1,2</strong>
+              </div>
+            </div>
+          </article>
+
+          <article class="step">
+            <div class="step__num">02</div>
+            <div class="step__body">
+              <h3 class="step__title">Оценка стоимости предприятия Б</h3>
+              <p class="step__text">
+                Стоимость оцениваемого предприятия равна его выручке,
+                умноженной на мультипликатор предприятия&nbsp;А.
+              </p>
+              <div class="formula formula--wrap">
+                <span>Стоимость&nbsp;Б</span>
+                <span class="formula__op">=</span>
+                <span>Выручка&nbsp;Б</span>
+                <span class="formula__op">×</span>
+                <span>Мультипликатор&nbsp;А</span>
+              </div>
+              <div class="calc">
+                <span class="calc__note">Подставляем значения</span>
+                <div class="calc__line">
+                  <span>600</span>
+                  <span class="calc__op">×</span>
+                  <span>1,2</span>
+                  <span class="calc__op">=</span>
+                  <span class="calc__res">720 млн ₸</span>
+                </div>
+              </div>
+              <div class="pill">
+                <span class="pill__dot"></span>
+                Расчётная стоимость предприятия Б — <strong>720 млн ₸</strong>
+              </div>
+            </div>
+          </article>
+
+          <article class="step step--final">
+            <div class="step__num step__num--gold">03</div>
+            <div class="step__body">
+              <h3 class="step__title">Итоговый результат</h3>
+
+              <!-- Funnel (фича 3) -->
+              <div class="funnel" id="funnel">
+                <div class="funnel__stage">
+                  <span class="funnel__label">Выручка Б</span>
+                  <span class="funnel__num">600</span>
+                  <span class="funnel__unit">млн ₸</span>
+                </div>
+                <div class="funnel__arrow" aria-hidden="true">
+                  <span class="funnel__mult">×1,2</span>
+                  <svg viewBox="0 0 60 24" width="60" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M4 12h48M42 4l10 8-10 8"/>
+                  </svg>
+                </div>
+                <div class="funnel__stage funnel__stage--accent">
+                  <span class="funnel__label">Стоимость Б</span>
+                  <span class="funnel__num" id="funnelResult">720</span>
+                  <span class="funnel__unit">млн ₸</span>
+                </div>
+              </div>
+
+              <div class="final">
+                <div class="final__item">
+                  <span class="final__label">Мультипликатор</span>
+                  <span class="final__value">1,2</span>
+                  <span class="final__sub">Стоимость / Выручка</span>
+                </div>
+                <div class="final__item final__item--accent">
+                  <span class="final__label">Стоимость предприятия Б</span>
+                  <span class="final__value">720</span>
+                  <span class="final__sub">млн тенге · расчётная</span>
+                </div>
+              </div>
+
+              <p class="step__text step__text--tight">
+                При условии одинакового мультипликатора стоимость предприятия&nbsp;Б
+                оценивается в <strong>720 млн тенге</strong>.
+              </p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ CALCULATOR ============ -->
+    <section class="section" id="calculator">
+      <div class="container">
+        <header class="section__head reveal">
+          <div class="eyebrow">Интерактив</div>
+          <h2 class="section__title">Калькулятор стоимости</h2>
+          <p class="section__lead">
+            Измените исходные данные или выберите готовый сценарий — результат
+            и таблица обновятся мгновенно.
+          </p>
+        </header>
+
+        <!-- Presets (фича 7) -->
+        <div class="presets" role="group" aria-label="Готовые сценарии">
+          <span class="presets__label">Сценарий:</span>
+          <button type="button" class="preset" data-rev-a="400" data-cost-a="480" data-rev-b="600">
+            Молочная ферма
+          </button>
+          <button type="button" class="preset" data-rev-a="800" data-cost-a="960" data-rev-b="1200">
+            Зерновое хозяйство
+          </button>
+          <button type="button" class="preset" data-rev-a="250" data-cost-a="400" data-rev-b="500">
+            Тепличный комплекс
+          </button>
+        </div>
+
+        <div class="calc-card">
+          <div class="calc-card__grid">
+
+            <div class="form">
+              <div class="field">
+                <label for="revA">Выручка предприятия А</label>
+                <div class="field__wrap">
+                  <input id="revA" type="text" inputmode="decimal" value="400" autocomplete="off" aria-describedby="calcError">
+                  <span class="field__unit">млн ₸</span>
+                </div>
+              </div>
+
+              <div class="field">
+                <label for="costA">Стоимость предприятия А</label>
+                <div class="field__wrap">
+                  <input id="costA" type="text" inputmode="decimal" value="480" autocomplete="off" aria-describedby="calcError">
+                  <span class="field__unit">млн ₸</span>
+                </div>
+              </div>
+
+              <div class="field">
+                <label for="revB">Выручка предприятия Б</label>
+                <div class="field__wrap">
+                  <input id="revB" type="text" inputmode="decimal" value="600" autocomplete="off" aria-describedby="calcError">
+                  <span class="field__unit">млн ₸</span>
+                </div>
+              </div>
+
+              <div class="form__actions">
+                <button type="button" id="calcBtn" class="btn btn--primary btn--block">Рассчитать</button>
+                <button type="button" id="resetBtn" class="btn btn--ghost btn--block">Сбросить</button>
+              </div>
+
+              <p class="form__error" id="calcError" role="alert" aria-live="polite"></p>
+            </div>
+
+            <div class="results">
+              <div class="result">
+                <span class="result__label">Мультипликатор А</span>
+                <span class="result__value" id="resMultiplier">1,2</span>
+                <span class="result__formula" id="resMultiplierFormula">480 ÷ 400</span>
+              </div>
+
+              <div class="result result--accent">
+                <div class="result__head">
+                  <span class="result__label">Стоимость предприятия Б</span>
+                  <button type="button" class="copy-btn" id="copyBtn" aria-label="Скопировать результат">
+                    <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                      <rect x="9" y="9" width="12" height="12" rx="2"/>
+                      <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/>
+                    </svg>
+                  </button>
+                </div>
+                <span class="result__value glow" id="resValueB">
+                  <span id="resValueBNumber">720,00</span> <em>млн ₸</em>
+                </span>
+                <span class="result__formula" id="resValueBFormula">600 × 1,2</span>
+              </div>
+
+              <p class="results__note">
+                Формула: стоимость&nbsp;Б&nbsp;=&nbsp;выручка&nbsp;Б&nbsp;×&nbsp;мультипликатор&nbsp;А.
+              </p>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- History (фича 16) -->
+        <div class="history" id="history" hidden>
+          <div class="history__head">
+            <span class="history__title">Последние расчёты</span>
+            <button type="button" class="history__clear" id="historyClear">Очистить</button>
+          </div>
+          <ul class="history__list" id="historyList"></ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ TABLE + BAR CHART ============ -->
+    <section class="section section--alt" id="table">
+      <div class="container">
+        <header class="section__head reveal">
+          <div class="eyebrow">Сопоставление</div>
+          <h2 class="section__title">Сравнительная таблица</h2>
+          <p class="section__lead">
+            Значения предприятия&nbsp;Б получены расчётным путём. Таблица
+            синхронизирована с калькулятором.
+          </p>
+        </header>
+
+        <div class="table-card">
+          <div class="table-scroll">
+            <table class="table">
+              <caption class="sr-only">Сравнение показателей предприятий А и Б</caption>
+              <thead>
+                <tr>
+                  <th>Показатель</th>
+                  <th>Предприятие А</th>
+                  <th>Предприятие Б</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th scope="row">Выручка</th>
+                  <td id="tableRevA">400 млн ₸</td>
+                  <td id="tableRevB">600 млн ₸</td>
+                </tr>
+                <tr>
+                  <th scope="row">Стоимость</th>
+                  <td id="tableCostA">480 млн ₸</td>
+                  <td id="tableCostB">720 млн ₸ <span class="tag">расчётная</span></td>
+                </tr>
+                <tr class="row--accent">
+                  <th scope="row">Мультипликатор</th>
+                  <td id="tableMultA">1,2</td>
+                  <td id="tableMultB">1,2</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- Bar chart (фича 1) -->
+        <div class="chart" id="chart">
+          <div class="chart__title">Стоимость предприятий</div>
+          <div class="chart__bars">
+            <div class="chart__bar-group">
+              <div class="chart__bar-wrap">
+                <div class="chart__bar chart__bar--a" id="chartBarA">
+                  <span class="chart__bar-value" id="chartBarAVal">480</span>
+                </div>
+              </div>
+              <div class="chart__label">Предприятие А</div>
+            </div>
+
+            <div class="chart__bar-group">
+              <div class="chart__bar-wrap">
+                <div class="chart__bar chart__bar--b" id="chartBarB">
+                  <span class="chart__bar-value" id="chartBarBVal">720</span>
+                </div>
+              </div>
+              <div class="chart__label">Предприятие Б</div>
+            </div>
+          </div>
+          <div class="chart__axis">
+            <span>0</span>
+            <span id="chartAxisMax">800 млн ₸</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ QUIZ (фича 8) ============ -->
+    <section class="section" id="quiz">
+      <div class="container">
+        <header class="section__head reveal">
+          <div class="eyebrow">Проверь себя</div>
+          <h2 class="section__title">Мини-тест</h2>
+          <p class="section__lead">
+            Три вопроса на понимание метода. Ответы проверяются сразу.
+          </p>
+        </header>
+
+        <div class="quiz">
+          <div class="quiz__item" data-correct="b">
+            <div class="quiz__question">1. Что показывает мультипликатор «Стоимость/Выручка»?</div>
+            <div class="quiz__options">
+              <label><input type="radio" name="q1" value="a"><span>Прибыль на один тенге выручки</span></label>
+              <label><input type="radio" name="q1" value="b"><span>Сколько единиц стоимости приходится на одну единицу выручки</span></label>
+              <label><input type="radio" name="q1" value="c"><span>Рентабельность продаж</span></label>
+            </div>
+            <div class="quiz__feedback"></div>
+          </div>
+
+          <div class="quiz__item" data-correct="a">
+            <div class="quiz__question">2. Какова расчётная стоимость Б при выручке 800 млн ₸ и мультипликаторе 1,2?</div>
+            <div class="quiz__options">
+              <label><input type="radio" name="q2" value="a"><span>960 млн ₸</span></label>
+              <label><input type="radio" name="q2" value="b"><span>880 млн ₸</span></label>
+              <label><input type="radio" name="q2" value="c"><span>1 200 млн ₸</span></label>
+            </div>
+            <div class="quiz__feedback"></div>
+          </div>
+
+          <div class="quiz__item" data-correct="c">
+            <div class="quiz__question">3. Что НЕ учитывает метод сопоставимых компаний?</div>
+            <div class="quiz__options">
+              <label><input type="radio" name="q3" value="a"><span>Выручку сопоставимой компании</span></label>
+              <label><input type="radio" name="q3" value="b"><span>Формулу мультипликатора</span></label>
+              <label><input type="radio" name="q3" value="c"><span>Различия в прибыльности, долгах и рисках предприятий</span></label>
+            </div>
+            <div class="quiz__feedback"></div>
+          </div>
+
+          <button type="button" class="btn btn--ghost" id="quizReset">Пройти заново</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ CONCLUSION ============ -->
+    <section class="section section--alt" id="conclusion">
+      <div class="container">
+        <div class="conclusion">
+          <div class="eyebrow">Экономический вывод</div>
+          <h2 class="section__title">Вывод</h2>
+
+          <p class="conclusion__text">
+            Мультипликатор «Стоимость&nbsp;/&nbsp;Выручка» предприятия&nbsp;А
+            составляет <strong>1,2</strong>. При использовании аналогичного
+            мультипликатора расчётная стоимость предприятия&nbsp;Б с выручкой
+            600&nbsp;млн тенге равна <strong>720&nbsp;млн тенге</strong>. Такой
+            подход позволяет предварительно оценить стоимость агропредприятия
+            на основе выручки сопоставимой компании. Оценка не учитывает
+            различия в прибыльности, задолженности, активах и рисках
+            предприятий.
+          </p>
+
+          <div class="chips">
+            <span class="chip">Рыночный подход</span>
+            <span class="chip">Метод сопоставимых компаний</span>
+            <span class="chip">Мультипликатор 1,2</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="footer">
+    <div class="container footer__inner">
+      <div class="footer__top">
+        <div>
+          <div class="footer__title">Кейс 3 · Сравнение двух агропредприятий</div>
+          <p class="footer__formula">
+            Мультипликатор = Стоимость ÷ Выручка&nbsp; · &nbsp;Стоимость&nbsp;Б = Выручка&nbsp;Б × Мультипликатор&nbsp;А
+          </p>
+        </div>
+        <div class="footer__buttons">
+          <button type="button" id="downloadPdf" class="btn btn--ghost">
+            <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M12 3v12M6 11l6 6 6-6M5 21h14"/>
+            </svg>
+            Скачать PDF
+          </button>
+          <button type="button" id="toTop" class="btn btn--ghost">
+            <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M12 19V5M5 12l7-7 7 7"/>
+            </svg>
+            Наверх
+          </button>
+        </div>
+      </div>
+
+      <div class="footer__bottom">
+        <span>Учебный экономический кейс · Агробизнес</span>
+        <span>AgriCase © 2025</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Floating Up -->
+  <button type="button" class="float-up" id="floatUp" aria-label="Наверх" tabindex="-1">
+    <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <path d="M12 19V5M5 12l7-7 7 7"/>
+    </svg>
+  </button>
+
+  <!-- Toast -->
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <!-- Onboarding tour (фича 4) -->
+  <div class="tour" id="tour" hidden>
+    <div class="tour__backdrop" data-tour-close></div>
+    <div class="tour__spotlight" id="tourSpotlight"></div>
+    <div class="tour__tip" id="tourTip">
+      <div class="tour__step" id="tourStep">Шаг 1 из 3</div>
+      <h3 class="tour__title" id="tourTitle">Попробуйте!</h3>
+      <p class="tour__text" id="tourText">Измените любое число — результаты пересчитаются мгновенно.</p>
+      <div class="tour__actions">
+        <button type="button" class="tour__skip" id="tourSkip">Пропустить</button>
+        <button type="button" class="btn btn--primary tour__next" id="tourNext">Далее</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Easter egg modal -->
+  <div class="modal" id="easterEgg" hidden>
+    <div class="modal__backdrop" data-close></div>
+    <div class="modal__box" role="dialog" aria-modal="true" aria-labelledby="eggTitle">
+      <div class="modal__icon">∞</div>
+      <h3 id="eggTitle">Деление на ноль</h3>
+      <p>В реальной экономике такого не бывает — выручка не может равняться нулю. Но математика сдаётся и говорит: <strong>∞</strong>.</p>
+      <button type="button" class="btn btn--primary" id="closeEgg">Понятно</button>
+    </div>
+  </div>
+
+  <!-- Easter egg ×10 -->
+  <div class="modal" id="bigMultiplier" hidden>
+    <div class="modal__backdrop" data-close-big></div>
+    <div class="modal__box" role="dialog" aria-modal="true" aria-labelledby="bigTitle">
+      <div class="modal__icon modal__icon--rocket">🚀</div>
+      <h3 id="bigTitle">Мультипликатор больше 10</h3>
+      <p>Такое бывает только в стартапах 2021 года. Проверьте исходные данные — возможно, это ошибка ввода.</p>
+      <button type="button" class="btn btn--primary" id="closeBig">Понятно</button>
+    </div>
+  </div>
+
+  <!-- Konami overlay -->
+  <div class="konami" id="konami" hidden aria-hidden="true"></div>
+
+  <!-- Print-only card (фича 5) -->
+  <div class="print-card" id="printCard">
+    <div class="print-card__head">
+      <span class="print-card__brand">AgriCase</span>
+      <span class="print-card__title">Кейс 3 · Сравнение двух агропредприятий</span>
+    </div>
+
+    <div class="print-card__body">
+      <h1 class="print-card__h1">Оценка стоимости предприятия Б</h1>
+      <p class="print-card__sub">по мультипликатору «Стоимость / Выручка»</p>
+
+      <div class="print-card__grid">
+        <div class="print-card__col">
+          <div class="print-card__label">Условие</div>
+          <table class="print-card__table">
+            <tr><td>Предприятие А · Выручка</td><td id="printRevA">400 млн ₸</td></tr>
+            <tr><td>Предприятие А · Стоимость</td><td id="printCostA">480 млн ₸</td></tr>
+            <tr><td>Предприятие Б · Выручка</td><td id="printRevB">600 млн ₸</td></tr>
+            <tr><td>Предприятие Б · Стоимость</td><td id="printCostB">неизвестна</td></tr>
+          </table>
+        </div>
+
+        <div class="print-card__col">
+          <div class="print-card__label">Решение</div>
+          <p class="print-card__line">Мультипликатор А = 480 ÷ 400 = <strong id="printMult">1,2</strong></p>
+          <p class="print-card__line">Стоимость Б = 600 × 1,2 = <strong id="printResult">720 млн ₸</strong></p>
+        </div>
+      </div>
+
+      <div class="print-card__conclusion">
+        <div class="print-card__label">Вывод</div>
+        <p>
+          Мультипликатор «Стоимость/Выручка» предприятия А составляет 1,2.
+          При использовании аналогичного мультипликатора расчётная стоимость
+          предприятия Б с выручкой 600 млн тенге равна 720 млн тенге. Метод
+          не учитывает различия в прибыльности, задолженности, активах и рисках
+          предприятий.
+        </p>
+      </div>
+
+      <div class="print-card__footer">
+        <span>Учебный экономический кейс · Агробизнес</span>
+        <span id="printDate">2025</span>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
